@@ -1,0 +1,32 @@
+body {
+    font-family: sans-serif;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: #CCC;
+}
+
+.article {
+    margin-bottom: 10px;
+    border: 1px solid #CCC;
+}
+
+.article-title {
+    color: royalblue;
+    margin: 0;
+    padding: 8px;
+}
+
+.article-title-secondary {
+    color: seagreen;
+}
+
+.article-content {
+    padding: 10px 14px;
+}
+
+.article-content p {
+    margin: 0;
+}
