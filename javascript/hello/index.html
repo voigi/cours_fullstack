@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Event</title>
+    <style>
+        section,
+        article,
+        p {
+            border: 1px solid royalblue;
+            padding: 20px;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        Section
+        <article>
+            Article
+            <p>Lorem ipsum dolor sit amet </p>
+        </article>
+    </section>
+    <script>
+        var elements = document.querySelectorAll('section,article,p');
+
+        for (var i = 0; i < elements.length; i++) {
+            elements[i].addEventListener('click', function (event) {
+                alert(this.tagName);
+            });
+        }
+    </script>
+</body>
+
+</html>
