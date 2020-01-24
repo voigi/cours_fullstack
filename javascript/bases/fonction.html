@@ -1,3 +1,4 @@
+<<<<<<< HEAD
     <!DOCTYPE html>
     <html lang="fr">
     <head>
@@ -54,4 +55,62 @@
         </script>
 
     </body>
+=======
+    <!DOCTYPE html>
+    <html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+         
+         function sayHello(name){
+        return "Hello "+name;
+         }
+        console.log(sayHello('John').toUpperCase());
+        console.log( sayHello('Jane').toLowerCase());
+        console.log( sayHello('chuck'));
+
+        var funk=function(){
+            return'Get Funky';
+        };
+
+        console.log(funk());
+
+        var doubleNumber= function(x){
+            return x*2;
+        }
+
+        console.log(doubleNumber(doubleNumber(10)));
+
+        var greeting=sayHello;
+        console.log(greeting('Wilfrid'));
+
+        //function anonyme qui s'appelle elle meme//
+        (function(){
+            console.log("Je suis dans ma bulle");
+        }());
+
+
+        //fonction fléchées//
+        let fk = (name,age)=>"Greeting "+name+" a "+age+" ans";
+            
+        console.log(fk('Batman',80));
+
+
+        //le this vaut Windows//
+        function test(){
+            function test2 (){
+                console.log(this);
+            }
+            test2();
+        }
+        test();
+        </script>
+
+    </body>
+>>>>>>> 66fd3d4e6b2a67cd12c031b78cc150582dbf3466
     </html>
