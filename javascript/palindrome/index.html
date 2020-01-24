@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Palindrome</title>
+</head>
+<body>
+    <div>
+        <label for="text">Tapez votre mot:</label>
+        <input type="text" class="Textinput" name="text">
+    </div>
+   
+    <script>
+var inputText = document.getElementsByClassName('Textinput').value;
+inputText.addEventListener('keyup', function (event) {
+    if (event.keyCode === 13) {
+        var node = createTaskNode(inputText.value);
+        inputText.value='';
+    }
+});
+
+        function isPalindrome(word){
+           let len= word.length;
+           
+            if (len === 0 || len === 1){
+                return true;
+            }
+            if (word.slice(0,1) !== word.slice(-1)){
+                return false;
+            }
+            return isPalindrome(word.slice(1,-1));
+        }
+        
+        let ok = console.log(isPalindrome('radar'));
+    </script>
+</body>
+</html>
