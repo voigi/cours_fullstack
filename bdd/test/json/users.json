@@ -1,0 +1,13 @@
+{
+    "firstname":"John",
+    "lastname": "Doe",
+    "age":30,
+    "is active":true,
+    "adresse":{
+        "street":"21 avenue victor huguo"
+    },
+    "phones":[
+        "+33 123456789",
+        "+33 123456789"
+    ]
+}
