@@ -2,6 +2,29 @@ const mongoose = require('mongoose');
 const Horse = require('../models/Horse');
 const Owner = require('../models/Owner');
 
+/**
+ * @api{get}/horses::id show all horses
+ * @apiName getHorses
+ * @apiGroup Horse
+ * 
+ *  * @apiParam {number} id id of the horse
+ * 
+ *  *@apiSucces {String}_id id of the horse
+ *  *@apiSucces {String}name mame of the horse
+ *  *@apiSucces {Number}age age of the horse
+ *  *@apiSucces {String}owner_id of the owner
+ * 
+ * @apiSuccesExemple {json} Succes-Response:
+ * HTTP/1.1 200 OK
+ *     {
+ *       "firstname": "John",
+ *       "lastname": "Doe"
+ *     }
+ * 
+ * 
+ */
+
+
 // GET all horses
 exports.horse_list = (req,res,next)=>{
     Horse.find((err, horses) => {
@@ -16,7 +39,12 @@ exports.horse_list = (req,res,next)=>{
 exports.horse_detail = (req, res, next) =>{
     const id = req.params.id;
     Horse.findById(id, (err, horse) => {
-        if(err) return next(err)
+        if(err){
+            res.status(404).json({message:'Horse not found'})
+            return next(err)
+        }
+        
+        
         res.json(horse);
     })
 }
