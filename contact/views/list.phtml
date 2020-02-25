@@ -1,0 +1,18 @@
+<h2>Liste de Contacts</h2>
+
+<table class=" table table-striped" >
+    <?php foreach ($contacts as $contact) : ?>
+<tr>
+        <td><?= $contact['firstname']?></td>
+        <td><?=$contact['lastname']?></td>
+        <td><?= $contact['email']?></td>
+        <td> <?= $contact['phone']?> </td>
+        
+
+
+</tr>
+
+<?php endforeach; ?>
+    
+     
+</table>
