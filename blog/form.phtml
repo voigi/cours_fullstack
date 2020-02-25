@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <title>Blog</title>
+</head>
+<body>
+    
+</body>
+</html>
+<div class=container>
+
+<center><h1>Formulaire de Blog</h1></center>
+
+    <form action="" method="POST">
+        <div class="form-group">
+            <label for="title">Titre</label>
+            <input type="text" class="form-control" name="title" id="title" value="<?=$title?>">
+        </div>
+        <div class="form-group">
+            <label for="teaser">Teaser</label>
+            <input type="text" class="form-control" name="teaser" id="teaser" value="<?=$teaser?>">
+        </div>
+        <div class="form-group">
+            <label for="teaser">Category</label>
+            <select  class="form-control" name="category" id="category" value="<?=$category?>">
+                <option>Biographie</option>
+                <option>Roman</option>
+                <option>Cuisine</option>
+                <option>Fait Divers</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="content">Contenu</label>
+            <input type="text" class="form-control" name="content" id="content" value="<?=$content?>">
+        </div>
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" name="publish" id="publish" value="yes">
+            <label for="publish" class="custom-control-label">Publier</label>
+            
+        </div>
+        <button type="submit">Envoyer</button>
+    </form>
+</div>
