@@ -1,15 +1,34 @@
 <?php
 
+require 'lib/csv.php';
 require 'lib/validators.php';
 
 define('CONTACTS_PATH','contact.csv');
+
+$contacts= loadContacts(CONTACTS_PATH);
 
 $prenom=isset($_POST['firstname']) ? $_POST['firstname'] : '' ;
 $lastname=$_POST['lastname']?? '';
 $email=$_POST['email']?? '';
 $phone=$_POST['phone']?? '';
-$contacts=[];
 $errors=[];
+if(isset($_GET['action']) && isset($_GET['id'])){
+    if($_GET['action'] == 'remove'){
+        $id=(int)$_GET['id'];
+        unset($contacts[$id]);
+        if (saveFile(CONTACTS_PATH, $contacts)) {
+            header('Location: index.php');
+        }else{
+           $errors[] ='Impossible de sauvegarder le contact';
+         
+         }    
+    }
+}
+
+
+
+    
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     //echo 'Le formulaire a bien été envoyé';
@@ -26,29 +45,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     if(empty($errors)){
         $prenom = strip_tags($prenom);
         $lastname= strip_tags($lastname);
-        $row="$prenom,$lastname,$email,$phone\n";
-        file_put_contents(CONTACTS_PATH,$row,FILE_APPEND);
+
+        $contacts[] =[
+            'firstname' => $prenom,
+            'lastname'=> $lastname,
+            'email' => $email,
+            'phone'=> $phone
+        ];
+
+        saveFile(CONTACTS_PATH,$contacts);
+        
     }   
 } 
-$handle =fopen(CONTACTS_PATH,'r');
-
-if ($handle !== false){
-    while(($data= fgetcsv($handle,1024))!== false){
-        //Mapping//
-        
-        $contacts[] = [
-            'firstname'=> $data[0],
-            'lastname'=> $data[1],
-            'email'=> $data[2],
-            'phone'=> $data[3]
 
 
-        ];
-        
-    }
-}
+
+
+
+
 include 'views/page.phtml';
-?>
 
 
 
