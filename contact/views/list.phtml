@@ -1,18 +1,21 @@
-<h2>Liste de Contacts</h2>
+<h2>Liste de Contacts (<?= count ($contacts)?>)</h2>
+
+<?php if(empty($contacts)):?>
+    <p>Vous avez (0) contacts.</p>
 
 <table class=" table table-striped" >
-    <?php foreach ($contacts as $contact) : ?>
+    <?php foreach ($contacts as $index => $contact) : ?>
 <tr>
-        <td><?= $contact['firstname']?></td>
-        <td><?=$contact['lastname']?></td>
-        <td><?= $contact['email']?></td>
-        <td> <?= $contact['phone']?> </td>
+            <td><?= $contact['firstname'] ?></td>
+            <td><?= $contact['lastname'] ?></td>
+            <td><?= $contact['email'] ?></td>
+            <td><?= $contact['phone'] ?></td>
+        <td><a href="?action=remove&id=<?=$index?>">Supprimer</a></td>
         
-
-
 </tr>
 
 <?php endforeach; ?>
     
      
 </table>
+<?php endif;?>
