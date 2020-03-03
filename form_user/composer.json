@@ -1,0 +1,19 @@
+{
+    "name": "aston/user",
+    "type": "library",
+    "description":"Aston Project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "FrançoisB",
+            "email": "38584907+voigi@users.noreply.github.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Aston\\":"src/Aston"
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {}
+}

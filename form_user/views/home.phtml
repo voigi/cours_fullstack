@@ -1,0 +1,30 @@
+<?php include 'header.phtml'?>
+
+    <h1>Home Page</h1>
+
+<div class="container">
+ 
+<table class="table table-string">
+        <tr>
+            <th>ID</th>
+            <th>Email</th>
+            <th>Firstname</th>
+            <th>Lastname</th>
+        </tr>
+        <?php foreach ($users as  $u):?>
+        <tr>
+            <td><?= $u->getId() ?></td>
+            <td><?= $u->getEmail() ?></td>
+            <td><?= $u->getFirstname() ?></td>
+            <td><?= $u->getLastname() ?></td>
+        
+        </tr>
+        <?php endforeach; ?>
+    
+    </table>
+
+</div>
+    
+
+<?php include 'footer.phtml'?>
+    
